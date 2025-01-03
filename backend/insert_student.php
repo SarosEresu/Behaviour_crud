@@ -16,7 +16,7 @@ if ($result) {
             icon: 'success',
             confirmButtonText: 'ตกลง'
         }).then(() => {
-            window.location = '../frontend/add_student.php';
+            window.location = '../frontend/index.php';
         });
     </script></body>";
 } else {
@@ -28,7 +28,7 @@ if ($result) {
             icon: 'error',
             confirmButtonText: 'ลองอีกครั้ง'
         }).then(() => {
-            window.location = '../frontend/add_student.php?do=fail';
+            window.location = '../frontend/add_student.php';
         });
     </script></body>";
 }

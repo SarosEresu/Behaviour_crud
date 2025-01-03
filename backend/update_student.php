@@ -11,7 +11,7 @@
         echo "<body><script>
             Swal.fire({
                 title: 'แก้ไขสำเร็จ!',
-                text: 'ข้อมูลถูกบันทึกเรียบร้อยแล้ว',
+                text: 'ข้อมูลถูกแก้ไขเรียบร้อยแล้ว',
                 icon: 'success',
                 confirmButtonText: 'ตกลง'
             }).then(() => {
