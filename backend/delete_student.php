@@ -6,7 +6,7 @@
     if($result){
         echo "
         <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
-        <script>
+        <body><script>
             Swal.fire({
                 title: 'ลบข้อมูลสำเร็จ!',
                 text: 'ข้อมูลถูกลบเรียบร้อยแล้ว',
@@ -17,12 +17,12 @@
                     window.location = '../frontend/index.php'; // เปลี่ยนเส้นทางกลับไปยังหน้าแรก
                 }
             });
-        </script>
+        </script></body>
         ";
     }else{
         echo "
         <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
-        <script>
+         <body><script>
             Swal.fire({
                 title: 'ลบข้อมูลล้มเหลว!',
                 text: 'เกิดข้อผิดพลาดในการลบข้อมูล',
@@ -33,7 +33,7 @@
                     window.location = '../frontend/index.php'; // เปลี่ยนเส้นทางกลับไปยังหน้าแรก
                 }
             });
-        </script>
+        </script></body>
         ";
     }
 ?>    
