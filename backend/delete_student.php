@@ -1,9 +1,15 @@
 <?php
-    include "condb.php";
-    $id = $_GET['id'];
-    $sql = "DELETE FROM students_list WHERE student_id = '$id'";
-    $result = mysqli_query($conn,$sql);
-    if($result){
+    include "condb.php"; // ดึงไฟล์ที่ใช้เชื่อมฐานข้อมูล
+
+        
+    $id = $_GET['id']; /* รับข้อมูลที่ส่งมาจาก Frontend มาเก็บไว้ในตัวแปร*/
+
+
+    $sql = "DELETE FROM students_list WHERE student_id = '$id'"; /* ภาษา sql ใช้สำหรับสั่งคำสั่งที่เราต้องการจะกระทำต่อฐานข้อมูล */
+    $result = mysqli_query($conn,$sql); /* สั่งให้คำสั่ง sql ทำงาน */
+
+    //ใช้ if else ในการตรวจสอบการทำงาน
+    if($result){ //ในกรณีที่สามารถทำงานได้ตามปกติให้sweetalertทำงานตามนี้
         echo "
         <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
         <body><script>
@@ -19,8 +25,8 @@
             });
         </script></body>
         ";
-    }else{
-        echo "
+    }else{  //ในกรณีที่ "ไม่" สามารถทำงานได้ตามปกติให้sweetalertทำงานตามนี้
+        echo " 
         <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
          <body><script>
             Swal.fire({
