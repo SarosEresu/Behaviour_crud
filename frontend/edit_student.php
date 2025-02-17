@@ -40,6 +40,16 @@
         <option value="ปวส.1/Wil"   <?php if ($row['vocation'] == "ปวส.1/Wil") echo 'selected'; ?>>ปวส.1/Wil</option>
         <option value="ปวส.2/Wil"   <?php if ($row['vocation'] == "ปวส.2/Wil") echo 'selected'; ?>>ปวส.2/Wil</option>
         </select>
+
+        <label>ห้อง:</label>
+        <select class="form-select  h-100 w-25 mb-3" aria-label="Default select example" name="room" required> <!-- นำข้อมูลจากฐานข้อมูลออกมาแสดง -->
+        <option value="1" <?php if ($row['room'] == "1") echo 'selected'; ?>>1</option> <!-- ส่งค่าข้อมูลมาเป็นสาขางานใหน ให้แสดงผลสาขางานนั้นเป็นอันแรก -->
+        <option value="2" <?php if ($row['room'] == "2") echo 'selected'; ?>>2</option> <!-- ส่งค่าข้อมูลมาเป็นสาขางานใหน ให้แสดงผลสาขางานนั้นเป็นอันแรก -->
+        <option value="3" <?php if ($row['room'] == "3") echo 'selected'; ?>>3</option> <!-- ส่งค่าข้อมูลมาเป็นสาขางานใหน ให้แสดงผลสาขางานนั้นเป็นอันแรก -->
+        <option value="4" <?php if ($row['room'] == "4") echo 'selected'; ?>>4</option> <!-- ส่งค่าข้อมูลมาเป็นสาขางานใหน ให้แสดงผลสาขางานนั้นเป็นอันแรก -->
+        <option value="5" <?php if ($row['room'] == "5") echo 'selected'; ?>>5</option> <!-- ส่งค่าข้อมูลมาเป็นสาขางานใหน ให้แสดงผลสาขางานนั้นเป็นอันแรก -->
+        </select>
+        
         <label>สาขาวิชา:</label>
         <select class="form-select  h-100 w-25 mb-3" aria-label="Default select example" name="major" required> <!-- นำข้อมูลจากฐานข้อมูลออกมาแสดง -->
         <option value="แผนกวิชาเทคนิคพื้นฐาน" <?php if ($row['major'] == "แผนกวิชาเทคนิคพื้นฐาน") echo 'selected'; ?>>แผนกวิชาเทคนิคพื้นฐาน</option> <!-- ส่งค่าข้อมูลมาเป็นสาขางานใหน ให้แสดงผลสาขางานนั้นเป็นอันแรก -->

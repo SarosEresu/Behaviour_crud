@@ -31,6 +31,8 @@
         <input class="form-control form-control-lg mb-3  w-25" type="text" name="name" value="<?=$row['name']?>"  disabled readonly  > <!-- แสดงชื่อ -->
         <label>ระดับชั้น:</label>
         <input class="form-control form-control-lg mb-3  w-25" type="text" name="name" value="<?=$row['vocation']?>"  disabled readonly  > <!-- แสดงชื่อ -->
+        <label>ห้อง:</label>
+        <input class="form-control form-control-lg mb-3  w-25" type="text" name="name" value="<?=$row['room']?>"  disabled readonly  > <!-- แสดงชื่อ -->
         <label>สาขาวิชา:</label>
         <input class="form-control form-control-lg mb-3  w-25" type="text" name="name" value="<?=$row['major']?>"  disabled readonly  > <!-- แสดงชื่อ -->
         </form>
