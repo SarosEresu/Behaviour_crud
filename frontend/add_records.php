@@ -25,10 +25,14 @@
             ข้อมูลความประพฤติ
         </div>
         <form method="POST" action="../backend/update_records.php">
-        <label>ไอดี:</label>
+        <label>รหัสประจำตัวนักศึกษา:</label>
         <input class="form-control form-control-lg mb-3  w-25" type="text" name="id" value="<?=$row['student_id']?>" disabled readonly > <!-- แสดงไอดี -->
-        <label>ชื่อ:</label>
+        <label>ชื่อ-นามสกุล:</label>
         <input class="form-control form-control-lg mb-3  w-25" type="text" name="name" value="<?=$row['name']?>"  disabled readonly  > <!-- แสดงชื่อ -->
+        <label>ระดับชั้น:</label>
+        <input class="form-control form-control-lg mb-3  w-25" type="text" name="name" value="<?=$row['vocation']?>"  disabled readonly  > <!-- แสดงชื่อ -->
+        <label>สาขาวิชา:</label>
+        <input class="form-control form-control-lg mb-3  w-25" type="text" name="name" value="<?=$row['major']?>"  disabled readonly  > <!-- แสดงชื่อ -->
         </form>
 
 
@@ -47,11 +51,12 @@
                 </div>
                 <form action="../backend/insert_records.php" method="POST"> <!-- แบบฟอร์มสำหรับกรอกข้อมูลที่ต้องการจะเพิ่มไปที่ฐานข้อมูล-->
                 <div class="modal-body">
-                    <div class="form-group mb-3">
-                        <label for="">ไอดี:</label>
-                        <input class="form-control form-control-lg mb-3  w-25" type="text" name="id" value="<?=$row['student_id']?>" readonly> <!-- ดึงข้อมูล ID สำหรับการอ้างอิงถึงนักเรียนที่ต้องการจะเพิ่มข้อมูล -->
+                    <div class="form-group mb-3 ">
+                        <label for="">รหัสประจำตัวนักศึกษา:</label>
+                        <input class="form-control form-control-lg mb-3  w-20" type="text" name="id" value="<?=$row['student_id']?>" readonly> <!-- ดึงข้อมูล ID สำหรับการอ้างอิงถึงนักเรียนที่ต้องการจะเพิ่มข้อมูล -->
                     </div>
                     <div class="form-group mb-3">
+                        <label for="">ระบุคำอธิบายเพิ่มเติม:</label>
                         <textarea class="form-control" placeholder="คำอธิบาย...." name="description" style="height: 300px" required></textarea> <!-- กรอกรายละเอียดของข้อมูล -->
                     </div>
 

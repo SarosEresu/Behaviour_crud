@@ -1,5 +1,10 @@
 <?php
-    include "../backend/condb.php"; //เชื่อมฐานข้อมูล
+session_start();
+include "../backend/condb.php";
+if (!isset($_SESSION["username"])) {
+    header("Location: login.php");
+    exit;
+} 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,7 +17,7 @@
 </head>
 <body>
     <div class="container"> 
-        <h1 class="display-2">behaviour records</h1>
+        <h1 class="display-2">ระบบจัดการคะแนนพฤติกรรม</h1>
         <hr>
         <a href="add_student.php" class="btn btn-success">เพิ่มนักเรียน</a>
         <!-- ปุ่มเด้ง pop-up รายชื่อผู้จัดทำ -->
@@ -47,7 +52,7 @@
             </div>
             </div>
             </div>
-
+        
 
             </div>
             <div class="modal-footer">
@@ -55,12 +60,15 @@
             </div>
             </div>
         </div>
-        </div> 
+        </div>
+        <a href="../backend/logout.php" class="btn btn-danger">ออกจากระบบ</a> 
         <table class="table table-striped mt-3"> <!-- ตารางแสดงข้อมูล -->
             <tr>
-                <th>ไอดี</th>
+                <th>รหัสประจำตัวนักศึกษา</th>
                 <th>ชื่อ-นามสกุล</th>
-                <th>แผนกวิชา</th>
+                <th>ระดับชั้น</th>
+                <th>ห้อง</th>
+                <th>สาขาวิชา</th>
                 <th>คะแนน</th>
                 <th></th>
                 <th></th>
@@ -74,6 +82,8 @@
             <tr>
             <td><?=$row['student_id']?></td>    <!--ดึงข้อมูลจากฐานข้อมูลออกมาแสดง -->
             <td><?=$row['name']?></td>          <!--ดึงข้อมูลจากฐานข้อมูลออกมาแสดง -->
+            <td><?=$row['vocation']?></td>          <!--ดึงข้อมูลจากฐานข้อมูลออกมาแสดง -->
+            <td><?=$row['room']?></td>         <!--ดึงข้อมูลจากฐานข้อมูลออกมาแสดง -->
             <td><?=$row['major']?></td>         <!--ดึงข้อมูลจากฐานข้อมูลออกมาแสดง -->
             <td><?=$row['student_point']?></td>
             <td><a href="add_records.php?id=<?=$row['student_id']?>" class="btn btn-primary">ข้อมูลความประพฤติ</a></td>   <!-- ลิงค์ไปที่หน้าเพิ่มข้อมูลความประพฤตินักเรียน อ้างอิงถึงข้อมูลนักเรียนที่ต้องการจะเพิ่ม ด้วย ID ที่ส่งผ่าน URL-->     
