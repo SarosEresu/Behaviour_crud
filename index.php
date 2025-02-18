@@ -16,7 +16,15 @@ header("location:login.php");
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- ดึง sweetlalert มาใช้งาน -->
 </head>
 <body>
-    <div class="container"> 
+
+    <div class="container">
+    <nav class="navbar navbar-light bg-light justify-content-between">
+    <a class="navbar-brand">Navbar</a>
+    <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+    </nav>
         <h1 class="display-2">ระบบจัดการคะแนนพฤติกรรม</h1>
         <hr>
         <a href="add_student.php" class="btn btn-success">เพิ่มนักเรียน</a>
@@ -24,6 +32,7 @@ header("location:login.php");
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
         รายชื่อผู้จัดทำ
         </button>
+        <a href="logout.php">logout</a>
 
         <!-- ตัว body ของ pop-up -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -61,7 +70,7 @@ header("location:login.php");
             </div>
         </div>
         </div>
-        <a href="logout.php" class="btn btn-danger">ออกจากระบบ</a> 
+
         <table class="table table-striped mt-3"> <!-- ตารางแสดงข้อมูล -->
             <tr>
                 <th>รหัสประจำตัวนักศึกษา</th>

@@ -16,7 +16,7 @@ if($row > 0){
     $_SESSION["id"] = $row['student_id'];
     $_SESSION["email"] = $row['email'];
     $_SESSION["name"] = $row['name'];
-    $_SESSION["point"] = $row['student_point']; 
+    $_SESSION["score"] = $row['student_point']; 
     $_SESSION["vocation"] = $row['vocation'];
     $_SESSION["room"] = $row['room'];
     $_SESSION["major"] = $row['major'];
