@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-    <title>Boostrap Login | Ludiflex</title>
+    <title>เข้าสู่ระบบ</title>
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
 
@@ -73,20 +73,16 @@
     <!--------------------------- Left Box ----------------------------->
 
        <div class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box" style="background: #831a1a;">
-           <div class="featured-image mb-3">
-            <img src="images/1.png" class="img-fluid" style="width: 250px;">
-           </div>
-           <p class="text-white fs-2" style="font-family: 'Courier New', Courier, monospace; font-weight: 600;">Be Verified</p>
-           <small class="text-white text-wrap text-center" style="width: 17rem;font-family: 'Courier New', Courier, monospace;">Join experienced Designers on this platform.</small>
+           <p class="text-white fs-2" style="font-family: 'Courier New', Courier, monospace; font-weight: 600;">เว็ปตัดคะแนนความประพฤติ</p>
+           <small class="text-white text-wrap text-center" style="width: 17rem;font-family: 'Courier New', Courier, monospace;">และบันทึกพฤติกรรม</small>
        </div> 
 
     <!-------------------- ------ Right Box ---------------------------->
         
        <div class="col-md-6 right-box">
           <div class="row align-items-center">
-                <div class="header-text mb-4">
-                     <h2>ระบบตัดคะแนน</h2>
-                     <p>และบันทึกพฤติกรรม</p>
+                <div class="d-flex flex-column justify-content-center header-text mb-4">
+                     <img src="img/logo03.png" alt="">
                 </div>
                 <form action="handle_login.php" method="POST">
                 <div class="input-group mb-3">

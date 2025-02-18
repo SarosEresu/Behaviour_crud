@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>ลงทะเบียน</title>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"> <!-- ดึง bootstrap มาใช้งาน -->
     <style>
       .gradient-custom {
@@ -83,9 +83,9 @@
                   </select>
 
                 </div>
-                <div class="col-md-6 mb-4 d-flex align-items-center" name="major" required>
+                <div class="col-md-6 mb-4 d-flex align-items-center">
 
-                <select class="select form-control-lg">
+                <select class="select form-control-lg" name="major" required>
                 <option value="">แผนก..</option>   
                 <option value="แผนกวิชาเทคนิคพื้นฐาน">แผนกวิชาเทคนิคพื้นฐาน</option> <!-- ส่งค่าข้อมูลมาเป็นสาขางานใหน ให้แสดงผลสาขางานนั้นเป็นอันแรก -->
                 <option value="แผนกวิชาช่างยนต์">แผนกวิชาช่างยนต์</option>
