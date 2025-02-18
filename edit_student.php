@@ -1,5 +1,5 @@
 <?php
-    include "../backend/condb.php"; //เชื่อมฐานข้อมูล
+    include "condb.php"; //เชื่อมฐานข้อมูล
     $id = $_GET['id']; //ดึงไอดีของข้อมูลที่ต้องการจะแก้ที่ส่งกับURLมาเก็บไว้ในตัวแปร
     $sql ="SELECT * FROM students_list WHERE student_id = '$id'"; //ระบุการกระทำที่จะทำกับฐานข้อมูล
 
@@ -22,7 +22,7 @@
         </div>
 
         <!-- แบบฟอร์มสำหรับกรอกข้อมูลที่ต้องการจะแก้ไขไปที่ฐานข้อมูล-->
-        <form method="POST" action="../backend/update_student.php"> <!-- ระบุว่าต้องการส่งข้อมูลไปที่ไฟล์ใหน เพื่อทำการจัดการกับฐานข้อมูลต่อไป-->
+        <form method="POST" action="update_student.php"> <!-- ระบุว่าต้องการส่งข้อมูลไปที่ไฟล์ใหน เพื่อทำการจัดการกับฐานข้อมูลต่อไป-->
         <label>รหัสประจำตัวนักศึกษา:</label>
         <input class="form-control form-control-lg mb-3  w-25" type="text" name="id" value="<?=$row['student_id']?>" required > <!-- นำข้อมูลจากฐานข้อมูลออกมาแสดง -->
         <label>ชื่อ-นามสกุล:</label>

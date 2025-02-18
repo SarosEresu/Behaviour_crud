@@ -1,11 +1,20 @@
 <?php
-include "condb.php"; // ดึงไฟล์ที่ใช้เชื่อมฐานข้อมูล
+include "condb.php";
 
-$name = $_POST['name'];     /* รับข้อมูลที่ส่งมาจาก Frontend มาเก็บไว้ในตัวแปร*/
-$major = $_POST['major']; 
+$id = $_POST['student_id'];
+$name = $_POST['name'];
+$vocation = $_POST['vocation'];
+$room = $_POST['room'];
+$major = $_POST['major'];
+$email = $_POST['email'];
+$password = $_POST['password'];
 
-$sql = "INSERT INTO students_list(name, major) VALUES('$name','$major')"; /* ภาษา sql ใช้สำหรับสั่งคำสั่งที่เราต้องการจะกระทำต่อฐานข้อมูล */
-$result = mysqli_query($conn, $sql); /* สั่งให้คำสั่ง sql ทำงาน */
+$hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+
+
+// ใช้ prepared statements เพื่อป้องกัน SQL Injection
+$sql = "INSERT INTO students_list (student_id, name, vocation, room, major, email, password) VALUES ('$id', '$name', '$vocation', '$room', '$major', '$email', '$password')";
+$result = mysqli_query($conn,$sql);
 
 //ใช้ if else ในการตรวจสอบการทำงาน
 if ($result) { //ในกรณีที่สามารถทำงานได้ตามปกติให้sweetalertทำงานตามนี้
@@ -17,7 +26,7 @@ if ($result) { //ในกรณีที่สามารถทำงานไ
             icon: 'success',
             confirmButtonText: 'ตกลง'
         }).then(() => {
-            window.location = '../frontend/index.php';
+            window.location = 'index.php';
         });
     </script></body>";
 } else {  //ในกรณีที่ "ไม่" สามารถทำงานได้ตามปกติให้sweetalertทำงานตามนี้
@@ -29,7 +38,7 @@ if ($result) { //ในกรณีที่สามารถทำงานไ
             icon: 'error',
             confirmButtonText: 'ลองอีกครั้ง'
         }).then(() => {
-            window.location = '../frontend/add_student.php';
+            window.location = 'add_student.php';
         });
     </script></body>";
 }

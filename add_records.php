@@ -1,5 +1,5 @@
 <?php
-    include "../backend/condb.php"; //เชื่อมฐานข้อมูล
+    include "condb.php"; //เชื่อมฐานข้อมูล
     $id = $_GET['id']; //ดึงไอดีของข้อมูลที่ต้องการจะแก้ที่ส่งกับURLมาเก็บไว้ในตัวแปร
     $sql = "SELECT * FROM students_list WHERE student_id = '$id'"; //ระบุการกระทำที่จะทำกับฐานข้อมูล
     $sql2 = "SELECT * FROM behaviour_log WHERE student_id ='$id'"; //ระบุการกระทำที่จะทำกับฐานข้อมูล
@@ -24,7 +24,7 @@
         <div class="alert alert-success p-3" role="alert"> <!-- แบบฟอร์มแสดงข้อมูลนักเรียน -->
             ข้อมูลความประพฤติ
         </div>
-        <form method="POST" action="../backend/update_records.php">
+        <form method="POST" action="update_records.php">
         <label>รหัสประจำตัวนักศึกษา:</label>
         <input class="form-control form-control-lg mb-3  w-25" type="text" name="id" value="<?=$row['student_id']?>" disabled readonly > <!-- แสดงไอดี -->
         <label>ชื่อ-นามสกุล:</label>
@@ -51,7 +51,7 @@
                     <h5 class="modal-title" id="exampleModalLabel">เพิ่มข้อมูล</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="../backend/insert_records.php" method="POST"> <!-- แบบฟอร์มสำหรับกรอกข้อมูลที่ต้องการจะเพิ่มไปที่ฐานข้อมูล-->
+                <form action="insert_records.php" method="POST"> <!-- แบบฟอร์มสำหรับกรอกข้อมูลที่ต้องการจะเพิ่มไปที่ฐานข้อมูล-->
                 <div class="modal-body">
                     <div class="form-group mb-3 ">
                         <label for="">รหัสประจำตัวนักศึกษา:</label>
@@ -96,7 +96,7 @@
                     <td><?=$row2['log_des']?></td>
                     <td><?=$row2['log_date']?></td>
                     <td><?=$row2['point']?></td>
-                    <td><a href="../backend/delete_records.php?id=<?=$row2['log_id']?>&point=<?=$row2['point']?>&sid=<?=$row['student_id']?>" class="btn btn-danger">ลบข้อมูล</a></td> <!-- ส่งคะแนนที่จะลบ,เพิ่ม ID นักเรียนผ่าน url ไปที่ backend -->
+                    <td><a href="delete_records.php?id=<?=$row2['log_id']?>&point=<?=$row2['point']?>&sid=<?=$row['student_id']?>" class="btn btn-danger">ลบข้อมูล</a></td> <!-- ส่งคะแนนที่จะลบ,เพิ่ม ID นักเรียนผ่าน url ไปที่ backend -->
                 </tr>
                 </tbody>
                 <?php

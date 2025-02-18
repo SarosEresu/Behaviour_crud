@@ -20,7 +20,7 @@
                 icon: 'success',
                 confirmButtonText: 'ตกลง'
             }).then(() => {
-                window.location = '../frontend/index.php';
+                window.location = 'index.php';
             });
         </script></body>";
     } else {  //ในกรณีที่ "ไม่" สามารถทำงานได้ตามปกติให้sweetalertทำงานตามนี้
@@ -32,7 +32,7 @@
                 icon: 'error',
                 confirmButtonText: 'ลองอีกครั้ง'
             }).then(() => {
-                window.location = '../frontend/index.php';
+                window.location = 'index.php';
             });
         </script></body>";
     }

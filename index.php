@@ -1,11 +1,11 @@
 <?php
 session_start();
-include "../backend/condb.php";
-if (!isset($_SESSION["username"])) {
-    header("Location: login.php");
-    exit;
-} 
+include "condb.php";
+if(!isset($_SESSION["email"]))
+header("location:login.php"); 
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,7 +61,7 @@ if (!isset($_SESSION["username"])) {
             </div>
         </div>
         </div>
-        <a href="../backend/logout.php" class="btn btn-danger">ออกจากระบบ</a> 
+        <a href="logout.php" class="btn btn-danger">ออกจากระบบ</a> 
         <table class="table table-striped mt-3"> <!-- ตารางแสดงข้อมูล -->
             <tr>
                 <th>รหัสประจำตัวนักศึกษา</th>
@@ -75,7 +75,7 @@ if (!isset($_SESSION["username"])) {
                 <th></th>
             </tr>
 <?php
-    $sql = "SELECT * FROM students_list"; //ภาษา sql สั่งฐานข้อมูล
+    $sql = "SELECT * FROM students_list WHERE status = 0"; //ภาษา sql สั่งฐานข้อมูล
     $result = mysqli_query($conn,$sql); //สั่งใช้งาน sql
     while($row=mysqli_fetch_array($result)){ //ดึงข้อมูลจากฐานข้อมูลมาแสดงผล
     ?>
@@ -111,7 +111,7 @@ if (!isset($_SESSION["username"])) {
         cancelButtonText: 'ยกเลิก'
     }).then((result) => { // เมื่อเงื่อนไขสั่งลบเป็นจริงให้ทำการสั่งลบ
         if (result.isConfirmed) {
-            window.location.href = `../backend/delete_student.php?id=${id}`;
+            window.location.href = `delete_student.php?id=${id}`;
         }
     });
 }</script>
