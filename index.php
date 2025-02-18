@@ -162,14 +162,6 @@ header("location:login.php");
                     </div>
                     
                 </div>
-                <div class="col-3">
-                <form action="" method="GET">
-                    <div class="input-group mb-3">
-                    <input type="text" name="search" placeholder="ค้นหาข้อมูล..." value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>">
-                    <button type="submit">ค้นหา</button>
-                    </div>
-                </div>
-                </form>
                 <div class="row">
                     <div class="col-12 col-xl-12 mb-4 mb-lg-0">
                         <div class="card">
