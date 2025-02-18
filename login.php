@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (isset($_SESSION["Error"])) {
+    echo "<script>alert('".$_SESSION["Error"]."');</script>";
+    unset($_SESSION["Error"]); // ลบข้อความผิดพลาดหลังจากแสดง alert
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

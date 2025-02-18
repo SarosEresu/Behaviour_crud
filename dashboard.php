@@ -21,24 +21,26 @@
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 </head>
 <body>
-
-<div class="container shadow p-3 mb-5 bg-white rounded">
-<nav class="navbar navbar-light bg-light p-3">
-        <div class="d-flex col-12 col-md-3 col-lg-2 mb-2 mb-lg-0 flex-wrap flex-md-nowrap justify-content-between">
-            <a class="navbar-brand" href="#">
-                
-            </a>
-            <button class="navbar-toggler d-md-none collapsed mb-3" type="button" data-toggle="collapse" data-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </div>
-        <div class="d-flex justify-content-between">
+<div>
+<div class="container shadow p-3 mt-5 bg-white rounded">
+    <div class="container">
+    <div class="row">
+    <div class="col">
+        <label>รหัสประจำตัวนักศึกษา:</label>
+        <input class="form-control form-control-lg mb-3  w-100" type="text" name="id" value="<?=$_SESSION["id"]?>" disabled readonly > <!-- แสดงไอดี -->
+        <label>ชื่อ-นามสกุล:</label>
+        <input class="form-control form-control-lg mb-3  w-100" type="text" name="name" value="<?=$_SESSION["name"]?>"  disabled readonly  > <!-- แสดงชื่อ -->
+        <label>ระดับชั้น:</label>
+        <input class="form-control form-control-lg mb-3  w-100" type="text" name="name" value="<?=$_SESSION["vocation"]?>"  disabled readonly  > <!-- แสดงชื่อ -->
+        <label>ห้อง:</label>
+        <input class="form-control form-control-lg mb-3  w-100" type="text" name="name" value="<?=$_SESSION["room"]?>"  disabled readonly  > <!-- แสดงชื่อ -->
+        <label>สาขาวิชา:</label>
+        <input class="form-control form-control-lg mb-3  w-100" type="text" name="name" value="<?=$_SESSION["major"]?>"  disabled readonly  > <!-- แสดงชื่อ -->
+        <label>คะแนนคงเหลือ:</label>
+        <input class="form-control form-control-lg mb-3  w-100" type="text" name="name" value="<?=$_SESSION["score"]?>/100"  disabled readonly  > <!-- แสดงชื่อ -->
         <a class="btn btn-danger" href="logout.php">ออกจากระบบ</a></li>
-        </div>
-                  
-        </div>
-    </nav>
-        <div class="container">
+    </div>
+    <div class="col">
             <table class="table table-striped mt-3">
                 <thead>
                 <tr>
@@ -63,8 +65,15 @@
                 }
                 ?>
             </table>
+         
+            </div>       
         </div>
+    </div>   
+    
     </div>
+       
+    </div>
+</div>   
 </body>
 <script src="bootstrap/js/bootstrap.min.js"></script>
 </html>

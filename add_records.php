@@ -96,6 +96,11 @@
                             <span class="ml-2">รายชื่อผู้จัดทำ</span>
                           </a>
                         </li>
+                        <li class="nav-item">
+                          <a class="nav-link active" aria-current="page" href="register_am.php">
+                            <span class="ml-2">เพิ่ม Admin</span>
+                          </a>
+                        </li>
 
                       </ul>
                 </div>

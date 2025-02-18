@@ -1,16 +1,15 @@
 <?php
 include "condb.php";
 
-$id = $_POST['student_id'];
+$tel = $_POST['tel'];
 $name = $_POST['name'];
-$vocation = $_POST['vocation'];
-$room = $_POST['room'];
-$major = $_POST['major'];
 $email = $_POST['email'];
 $password = $_POST['password'];
 
+
+
 // ตรวจสอบว่าข้อมูล student_id หรือ email ซ้ำหรือไม่
-$check_sql = "SELECT * FROM students_list WHERE student_id = '$id' OR email = '$email'";
+$check_sql = "SELECT * FROM students_list WHERE name = '$name' OR email = '$email'";
 $check_result = mysqli_query($conn, $check_sql);
 
 if (mysqli_num_rows($check_result) > 0) {
@@ -25,15 +24,15 @@ if (mysqli_num_rows($check_result) > 0) {
             confirmButtonText: 'ลองอีกครั้ง'
         }).then((result) => {
             if (result.isConfirmed) {
-                window.location = 'register.php'; // กลับไปยังหน้าลงทะเบียน
+                window.location = 'register_am.php'; // กลับไปยังหน้าลงทะเบียน
             }
         });
     </script></body>
     ";
 } else {
     // ถ้าไม่พบข้อมูลที่ซ้ำ ทำการลงทะเบียน
-    $sql = "INSERT INTO students_list (student_id, name, vocation, room, major, email, password) 
-            VALUES ('$id', '$name', '$vocation', '$room', '$major', '$email', '$password')";
+    $sql = "INSERT INTO students_list ( student_id, name, email, password, status) 
+            VALUES ('$tel','$name', '$email', '$password', '1')";
     $result = mysqli_query($conn, $sql);
 
     if ($result) {
@@ -63,7 +62,7 @@ if (mysqli_num_rows($check_result) > 0) {
                 confirmButtonText: 'ลองอีกครั้ง'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    window.location = 'register.php'; // กลับไปยังหน้าลงทะเบียน
+                    window.location = 'register_am.php'; // กลับไปยังหน้าลงทะเบียน
                 }
             });
         </script></body>
