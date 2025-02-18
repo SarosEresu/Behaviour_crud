@@ -8,7 +8,7 @@
     <style>
       .gradient-custom {
         /* fallback for old browsers */
-        background: #ececec;
+        background: #831a1a;
         }
         hr {
         color: #831a1a;

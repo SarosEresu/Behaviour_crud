@@ -56,15 +56,15 @@ header("location:login.php");
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-light bg-light p-3">
+    <nav class="navbar p-3" style="background: #831a1a">
         <div class="d-flex col-12 col-md-3 col-lg-2 mb-2 mb-lg-0 flex-wrap flex-md-nowrap justify-content-between">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand text-white" href="#" >
                 ระบบตัดคะแนนพฤติกรรม
             </a>
             <button class="navbar-toggler d-md-none collapsed mb-3" type="button" data-toggle="collapse" data-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-        </div>
+            </div>
             <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
                   สวัสดี <?php echo $_SESSION['name'] ?>
@@ -74,29 +74,31 @@ header("location:login.php");
                 </ul>
               </div>
         </div>
+        
     </nav>
     <div class="container-fluid">
         <div class="row">
-            <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+            <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block sidebar collapse"  style="background: #831a1a" >
                 <div class="position-sticky">
                     <ul class="nav flex-column">
                         <li class="nav-item">
                           <a class="nav-link active" aria-current="page" href="add_student.php">
 
-                            <span class="ml-2">เพิ่มนักเรียน</span>
+                            <span class="text-white ml-2">เพิ่มนักเรียน</span>
                           </a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link active" aria-current="page" href="#">
-                            <span class="ml-2">รายชื่อผู้จัดทำ</span>
+                          <a class="nav-link active" aria-current="page" href="made.php">
+                            <span class="text-white ml-2">รายชื่อผู้จัดทำ</span>
                           </a>
                         </li>
                         <li class="nav-item">
                           <a class="nav-link active" aria-current="page" href="register_am.php">
-                            <span class="ml-2">เพิ่ม Admin</span>
+                            <span class="text-white ml-2">เพิ่ม Admin</span>
                           </a>
                         </li>
-
+                        
+        
                       </ul>
                 </div>
             </nav>
@@ -111,9 +113,16 @@ header("location:login.php");
                         <div class="card">
                             <h5 class="card-header">จำนวนนักศึกษาในระบบ</h5>
                             <div class="card-body">
-                              <h5 class="card-title">345k</h5>
-                              <p class="card-text">Feb 1 - Apr 1, United States</p>
-                              <p class="card-text text-success">18.2% increase since last month</p>
+                            <?php 
+                            $students_list_query = "SELECT * FROM students_list WHERE status='0'";
+                            $student_list_query_run = mysqli_query($conn, $students_list_query);
+
+                            if ($student_list_total = mysqli_num_rows($student_list_query_run)) {	
+                                echo '<h4 class="mb-0">' . $student_list_total . '</h4>';
+                            } else {
+                                echo '<h4 class="mb-0">No Data</h4>';
+                            }
+                            ?>
                             </div>
                           </div>
                     </div>
@@ -121,9 +130,16 @@ header("location:login.php");
                         <div class="card">
                             <h5 class="card-header">ไม่ผ่าน</h5>
                             <div class="card-body">
-                              <h5 class="card-title">$2.4k</h5>
-                              <p class="card-text">Feb 1 - Apr 1, United States</p>
-                              <p class="card-text text-success">4.6% increase since last month</p>
+                            <?php 
+                            $students_list_query = "SELECT * FROM students_list WHERE status='0' AND student_point <= '60'";
+                            $student_list_query_run = mysqli_query($conn, $students_list_query);
+
+                            if ($student_list_total = mysqli_num_rows($student_list_query_run)) {	
+                                echo '<h4 class="mb-0">' . $student_list_total . '</h4>';
+                            } else {
+                                echo '<h4 class="mb-0">No Data</h4>';
+                            }
+                            ?>
                             </div>
                           </div>
                     </div>
@@ -131,22 +147,20 @@ header("location:login.php");
                         <div class="card">
                             <h5 class="card-header">ผ่าน</h5>
                             <div class="card-body">
-                              <h5 class="card-title">43</h5>
-                              <p class="card-text">Feb 1 - Apr 1, United States</p>
-                              <p class="card-text text-danger">2.6% decrease since last month</p>
+                            <?php 
+                            $students_list_query = "SELECT * FROM students_list WHERE status='0' AND student_point > '60'";
+                            $student_list_query_run = mysqli_query($conn, $students_list_query);
+
+                            if ($student_list_total = mysqli_num_rows($student_list_query_run)) {	
+                                echo '<h4 class="mb-0">' . $student_list_total . '</h4>';
+                            } else {
+                                echo '<h4 class="mb-0">No Data</h4>';
+                            }
+                            ?>
                             </div>
                           </div>
                     </div>
-                    <div class="col-12 col-md-6 mb-4 mb-lg-0 col-lg-3">
-                        <div class="card">
-                            <h5 class="card-header">Traffic</h5>
-                            <div class="card-body">
-                              <h5 class="card-title">64k</h5>
-                              <p class="card-text">Feb 1 - Apr 1, United States</p>
-                              <p class="card-text text-success">2.5% increase since last month</p>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
                 <div class="col-3">
                 <form action="" method="GET">

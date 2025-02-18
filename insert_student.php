@@ -9,7 +9,6 @@ $major = $_POST['major'];
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-$hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
 
 // ใช้ prepared statements เพื่อป้องกัน SQL Injection

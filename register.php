@@ -8,7 +8,7 @@
     <style>
       .gradient-custom {
         /* fallback for old browsers */
-        background: #ececec;
+        background: #831a1a;
         }
         hr {
         color: #831a1a;
@@ -134,7 +134,7 @@
 
               <div class="mt-4 pt-2">
                 <input data-mdb-ripple-init class="btn btn-danger btn-lg" type="submit" value="ยืนยัน" />
-                <a href="login.php">ย้อนกลับ</a>
+                <a href="login.php" class="btn btn-warning btn-lg">ย้อนกลับ</a>
               </div>
 
             </form>

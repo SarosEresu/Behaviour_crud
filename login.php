@@ -19,7 +19,7 @@ if (isset($_SESSION["Error"])) {
 
     body{
         font-family: 'Poppins', sans-serif;
-        background: #ececec;
+        background: #831a1a;
     }
 
     /*------------ Login container ------------*/

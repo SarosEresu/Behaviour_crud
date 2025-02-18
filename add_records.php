@@ -62,9 +62,9 @@
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-light bg-light p-3">
+<nav class="navbar p-3" style="background: #831a1a">
         <div class="d-flex col-12 col-md-3 col-lg-2 mb-2 mb-lg-0 flex-wrap flex-md-nowrap justify-content-between">
-            <a class="navbar-brand" href="#">
+        <a class="navbar-brand text-white" href="#" >
                 ระบบตัดคะแนนพฤติกรรม
             </a>
             <button class="navbar-toggler d-md-none collapsed mb-3" type="button" data-toggle="collapse" data-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
@@ -83,26 +83,29 @@
     </nav>
     <div class="container-fluid">
         <div class="row">
-            <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+            <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block sidebar collapse"  style="background: #831a1a" >
                 <div class="position-sticky">
                     <ul class="nav flex-column">
                         <li class="nav-item">
                           <a class="nav-link active" aria-current="page" href="add_student.php">
-                            <span class="ml-2">เพิ่มนักเรียน</span>
+
+                            <span class="text-white ml-2">เพิ่มนักเรียน</span>
                           </a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link active" aria-current="page" href="#">
-                            <span class="ml-2">รายชื่อผู้จัดทำ</span>
+                          <a class="nav-link active" aria-current="page" href="made.php">
+                            <span class="text-white ml-2">รายชื่อผู้จัดทำ</span>
                           </a>
                         </li>
                         <li class="nav-item">
                           <a class="nav-link active" aria-current="page" href="register_am.php">
-                            <span class="ml-2">เพิ่ม Admin</span>
+                            <span class="text-white ml-2">เพิ่ม Admin</span>
                           </a>
                         </li>
-
+                        
+        
                       </ul>
+                </div>
                 </div>
             </nav>
             <main class="col-md-9 ml-sm-auto col-lg-10 px-md-4 py-4">
