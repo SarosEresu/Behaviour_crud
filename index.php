@@ -1,7 +1,8 @@
+<!-- หน้าแรกสำหรับ แอดมิน  -->
 <?php
 session_start();
-include "condb.php";
-if(!isset($_SESSION["email"]))
+include "condb.php"; /* เชื่อมฐานข้อมูล */
+if(!isset($_SESSION["email"])) /* ถ้าไม่มีการล็อคอิน ให้ไปที่หน้าล็อคอิน */
 header("location:login.php");
 
 
@@ -114,7 +115,7 @@ header("location:login.php");
                             <h5 class="card-header">จำนวนนักศึกษาในระบบ</h5>
                             <div class="card-body">
                             <?php 
-                            $students_list_query = "SELECT * FROM students_list WHERE status='0'";
+                            $students_list_query = "SELECT * FROM students_list WHERE status='0'"; /* คำนวนจำนวนนักเรียนทั้งหมด */
                             $student_list_query_run = mysqli_query($conn, $students_list_query);
 
                             if ($student_list_total = mysqli_num_rows($student_list_query_run)) {	
@@ -131,7 +132,7 @@ header("location:login.php");
                             <h5 class="card-header">ไม่ผ่าน</h5>
                             <div class="card-body">
                             <?php 
-                            $students_list_query = "SELECT * FROM students_list WHERE status='0' AND student_point <= '60'";
+                            $students_list_query = "SELECT * FROM students_list WHERE status='0' AND student_point <= '60'"; /* คำนวนจำนวนนักเรียนที่ผ่าน */
                             $student_list_query_run = mysqli_query($conn, $students_list_query);
 
                             if ($student_list_total = mysqli_num_rows($student_list_query_run)) {	
@@ -148,7 +149,7 @@ header("location:login.php");
                             <h5 class="card-header">ผ่าน</h5>
                             <div class="card-body">
                             <?php 
-                            $students_list_query = "SELECT * FROM students_list WHERE status='0' AND student_point > '60'";
+                            $students_list_query = "SELECT * FROM students_list WHERE status='0' AND student_point > '60'"; /* คำนวนจำนวนนักเรียนที่ไม่ผ่าน */
                             $student_list_query_run = mysqli_query($conn, $students_list_query);
 
                             if ($student_list_total = mysqli_num_rows($student_list_query_run)) {	

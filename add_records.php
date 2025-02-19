@@ -1,3 +1,4 @@
+<!-- หน้าเพิ่มข้อมูลพฤติกรรม -->
 <?php
     session_start();
     include "condb.php"; //เชื่อมฐานข้อมูล
@@ -128,53 +129,53 @@
                                         <label>ชื่อ-นามสกุล:</label>
                                         <input class="form-control form-control-lg mb-3  m-25" type="text" name="name" value="<?=$row['name']?>"  disabled readonly  > <!-- แสดงชื่อ -->
                                         <label>ระดับชั้น:</label>
-                                        <input class="form-control form-control-lg mb-3  m-25" type="text" name="name" value="<?=$row['vocation']?>"  disabled readonly  > <!-- แสดงชื่อ -->
+                                        <input class="form-control form-control-lg mb-3  m-25" type="text" name="name" value="<?=$row['vocation']?>"  disabled readonly  > <!-- แสดงชั้น -->
                                         <label>ห้อง:</label>
-                                        <input class="form-control form-control-lg mb-3  m-25" type="text" name="name" value="<?=$row['room']?>"  disabled readonly  > <!-- แสดงชื่อ -->
+                                        <input class="form-control form-control-lg mb-3  m-25" type="text" name="name" value="<?=$row['room']?>"  disabled readonly  > <!-- แสดงห้อง -->
                                         <label>สาขาวิชา:</label>
-                                        <input class="form-control form-control-lg mb-3  m-25" type="text" name="name" value="<?=$row['major']?>"  disabled readonly  > <!-- แสดงชื่อ -->
+                                        <input class="form-control form-control-lg mb-3  m-25" type="text" name="name" value="<?=$row['major']?>"  disabled readonly  > <!-- แสดงสาขา -->
                                         <label>คะแนนคงเหลือ:</label>
-                                        <input class="form-control form-control-lg mb-3  m-25" type="text" name="name" value="<?=$row['student_point']?> / 100"  disabled readonly  > <!-- แสดงชื่อ -->
+                                        <input class="form-control form-control-lg mb-3  m-25" type="text" name="name" value="<?=$row['student_point']?> / 100"  disabled readonly  > <!-- แสดงคะแนน -->
                                         </form>
 
 
-                                            <!-- pop-up สำหรับการเพิ่มข้อมูลพฤติกรรม -->
+                                                                                        <!-- ปุ่มเปิด Modal -->
                                             <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                            เพิ่มข้อมูลความประพฤติ
+                                                เพิ่มข้อมูลความประพฤติ
                                             </button>
 
-                                            <!-- ตัว body ของ pop-up สำหรับการเพิ่มข้อมูลพฤติกรรม -->
+                                            <!-- Modal -->
                                             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">เพิ่มข้อมูล</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">เพิ่มข้อมูล</h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <form action="insert_records.php" method="POST">
+                                                            <div class="modal-body">
+                                                                <div class="form-group mb-3">
+                                                                    <label for="">รหัสประจำตัวนักศึกษา:</label>
+                                                                    <input class="form-control" type="text" name="id" value="<?=$row['student_id']?>" readonly>
+                                                                </div>
+                                                                <div class="form-group mb-3">
+                                                                    <label for="">ระบุคำอธิบายเพิ่มเติม:</label>
+                                                                    <textarea class="form-control" name="description" placeholder="คำอธิบาย...." style="height: 100px" required></textarea>
+                                                                </div>
+                                                                <div class="form-group mb-3">
+                                                                    <label for="">คะแนนที่หักลบ, เพิ่ม:</label>
+                                                                    <input type="number" class="form-control" name="score" placeholder="จำนวนคะแนน....." required>
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ปิด</button>
+                                                                <button type="submit" class="btn btn-primary">บันทึก</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
                                                 </div>
-                                                <form action="insert_records.php" method="POST"> <!-- แบบฟอร์มสำหรับกรอกข้อมูลที่ต้องการจะเพิ่มไปที่ฐานข้อมูล-->
-                                                <div class="modal-body">
-                                                    <div class="form-group mb-3 ">
-                                                        <label for="">รหัสประจำตัวนักศึกษา:</label>
-                                                        <input class="form-control form-control-lg mb-3  w-20" type="text" name="id" value="<?=$row['student_id']?>" readonly> <!-- ดึงข้อมูล ID สำหรับการอ้างอิงถึงนักเรียนที่ต้องการจะเพิ่มข้อมูล -->
-                                                    </div>
-                                                    <div class="form-group mb-3">
-                                                        <label for="">ระบุคำอธิบายเพิ่มเติม:</label>
-                                                        <textarea class="form-control" placeholder="คำอธิบาย...." name="description" style="height: 300px" required></textarea> <!-- กรอกรายละเอียดของข้อมูล -->
-                                                    </div>
+                                            </div>
 
-                                                    <div class="form-group mb-3">
-                                                        <label for="">คะแนนที่หักลบ, เพิ่ม:</label>
-                                                        <input type="number" class="form-control" name ="score" placeholder = "จำนวนคะแนน....." required> <!-- จำนวนคะแนนที่ต้องการจะลบ -->
-                                                    </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ปิด</button>
-                                                    <button type="submit" class="btn btn-primary">บันทึก</button> <!-- ปุ่มบันทึกข้อมูล --> 
-                                                </div>
-                                                </div>
-                                                </form>
-                                            </div>
-                                            </div>
                                             <a href="index.php" class="btn btn-secondary">กลับ</a>
                                         </div>
                                     </div>
@@ -219,8 +220,7 @@
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script> <!-- เด้ง pop-up เพื่อยืนยันว่าจะลบข้อมูลนี้หรือไม่ -->
 </body>
 </html>

@@ -1,8 +1,9 @@
+<!-- หน้าสำหรับ login  -->
 <?php
 session_start();
 if (isset($_SESSION["Error"])) {
-    echo "<script>alert('".$_SESSION["Error"]."');</script>";
-    unset($_SESSION["Error"]); // ลบข้อความผิดพลาดหลังจากแสดง alert
+    echo "<script>alert('".$_SESSION["Error"]."');</script>"; /* เมื่อเกิด error ให้แสดงข้อความแจ้งเตือน */
+    unset($_SESSION["Error"]); 
 }
 ?>
 <!DOCTYPE html>

@@ -1,3 +1,4 @@
+<!-- หน้าสำหรับการแก้ไขข้อมูลนักเรียน  -->
 <?php
     session_start();
     include "condb.php"; //เชื่อมฐานข้อมูล
@@ -115,17 +116,18 @@
         <!-- แบบฟอร์มสำหรับกรอกข้อมูลที่ต้องการจะแก้ไขไปที่ฐานข้อมูล-->
         <form method="POST" action="update_student.php"> <!-- ระบุว่าต้องการส่งข้อมูลไปที่ไฟล์ใหน เพื่อทำการจัดการกับฐานข้อมูลต่อไป-->
         <label>รหัสประจำตัวนักศึกษา:</label>
-        <input class="form-control form-control-lg mb-3  w-25" type="text" name="id" value="<?=$row['student_id']?>" required readonly> <!-- นำข้อมูลจากฐานข้อมูลออกมาแสดง -->
+        <input class="form-control form-control-lg mb-3  w-25" type="text" name="id" value="<?=$row['student_id']?>" required readonly> 
         <label>ชื่อ-นามสกุล:</label>
-        <input class="form-control form-control-lg mb-3  w-25" type="text" name="name" value="<?=$row['name']?>"  required > <!-- นำข้อมูลจากฐานข้อมูลออกมาแสดง -->
+        <input class="form-control form-control-lg mb-3  w-25" type="text" name="name" value="<?=$row['name']?>"  required > 
         <label>ลำดับชั้น:</label>
-        <select class="form-select  h-100 w-25 mb-3" aria-label="Default select example" name="vocation" required> <!-- นำข้อมูลจากฐานข้อมูลออกมาแสดง -->
-        <option value="ปวช.1" <?php if ($row['vocation'] == "ปวช.1") echo 'selected'; ?>>ปวช.1</option> <!-- ส่งค่าข้อมูลมาเป็นสาขางานใหน ให้แสดงผลสาขางานนั้นเป็นอันแรก -->
-        <option value="ปวช.2" <?php if ($row['vocation'] == "ปวช.2") echo 'selected'; ?>>ปวช.2</option> <!-- ส่งค่าข้อมูลมาเป็นสาขางานใหน ให้แสดงผลสาขางานนั้นเป็นอันแรก -->
-        <option value="ปวช.3" <?php if ($row['vocation'] == "ปวช.3") echo 'selected'; ?>>ปวช.3</option> <!-- ส่งค่าข้อมูลมาเป็นสาขางานใหน ให้แสดงผลสาขางานนั้นเป็นอันแรก -->
-        <option value="ปวช.1/Wil" <?php if ($row['vocation'] == "ปวช.1/Wil") echo 'selected'; ?>>ปวช.1/Wil</option> <!-- ส่งค่าข้อมูลมาเป็นสาขางานใหน ให้แสดงผลสาขางานนั้นเป็นอันแรก -->
-        <option value="ปวช.2/Wil" <?php if ($row['vocation'] == "ปวช.2/Wil") echo 'selected'; ?>>ปวช.2/Wil</option> <!-- ส่งค่าข้อมูลมาเป็นสาขางานใหน ให้แสดงผลสาขางานนั้นเป็นอันแรก -->
-        <option value="ปวช.3/Wil" <?php if ($row['vocation'] == "ปวช.3/Wil") echo 'selected'; ?>>ปวช.3/Wil</option> <!-- ส่งค่าข้อมูลมาเป็นสาขางานใหน ให้แสดงผลสาขางานนั้นเป็นอันแรก -->
+        <select class="form-select  h-100 w-25 mb-3" aria-label="Default select example" name="vocation" required>
+        <!-- นำข้อมูลจากฐานข้อมูลออกมาแสดง --> 
+        <option value="ปวช.1" <?php if ($row['vocation'] == "ปวช.1") echo 'selected'; ?>>ปวช.1</option> 
+        <option value="ปวช.2" <?php if ($row['vocation'] == "ปวช.2") echo 'selected'; ?>>ปวช.2</option> 
+        <option value="ปวช.3" <?php if ($row['vocation'] == "ปวช.3") echo 'selected'; ?>>ปวช.3</option> 
+        <option value="ปวช.1/Wil" <?php if ($row['vocation'] == "ปวช.1/Wil") echo 'selected'; ?>>ปวช.1/Wil</option> 
+        <option value="ปวช.2/Wil" <?php if ($row['vocation'] == "ปวช.2/Wil") echo 'selected'; ?>>ปวช.2/Wil</option> 
+        <option value="ปวช.3/Wil" <?php if ($row['vocation'] == "ปวช.3/Wil") echo 'selected'; ?>>ปวช.3/Wil</option> 
         <option value="ปวส.1"   <?php if ($row['vocation'] == "ปวส.1") echo 'selected'; ?>>ปวส.1</option>
         <option value="ปวส.2"   <?php if ($row['vocation'] == "ปวส.2") echo 'selected'; ?>>ปวส.2</option>
         <option value="ปวส.1/Wil"   <?php if ($row['vocation'] == "ปวส.1/Wil") echo 'selected'; ?>>ปวส.1/Wil</option>
@@ -133,17 +135,19 @@
         </select>
 
         <label>ห้อง:</label>
-        <select class="form-select  h-100 w-25 mb-3" aria-label="Default select example" name="room" required> <!-- นำข้อมูลจากฐานข้อมูลออกมาแสดง -->
-        <option value="1" <?php if ($row['room'] == "1") echo 'selected'; ?>>1</option> <!-- ส่งค่าข้อมูลมาเป็นสาขางานใหน ให้แสดงผลสาขางานนั้นเป็นอันแรก -->
-        <option value="2" <?php if ($row['room'] == "2") echo 'selected'; ?>>2</option> <!-- ส่งค่าข้อมูลมาเป็นสาขางานใหน ให้แสดงผลสาขางานนั้นเป็นอันแรก -->
-        <option value="3" <?php if ($row['room'] == "3") echo 'selected'; ?>>3</option> <!-- ส่งค่าข้อมูลมาเป็นสาขางานใหน ให้แสดงผลสาขางานนั้นเป็นอันแรก -->
-        <option value="4" <?php if ($row['room'] == "4") echo 'selected'; ?>>4</option> <!-- ส่งค่าข้อมูลมาเป็นสาขางานใหน ให้แสดงผลสาขางานนั้นเป็นอันแรก -->
-        <option value="5" <?php if ($row['room'] == "5") echo 'selected'; ?>>5</option> <!-- ส่งค่าข้อมูลมาเป็นสาขางานใหน ให้แสดงผลสาขางานนั้นเป็นอันแรก -->
+        <!-- นำข้อมูลจากฐานข้อมูลออกมาแสดง -->
+        <select class="form-select  h-100 w-25 mb-3" aria-label="Default select example" name="room" required> 
+        <option value="1" <?php if ($row['room'] == "1") echo 'selected'; ?>>1</option> 
+        <option value="2" <?php if ($row['room'] == "2") echo 'selected'; ?>>2</option> 
+        <option value="3" <?php if ($row['room'] == "3") echo 'selected'; ?>>3</option> 
+        <option value="4" <?php if ($row['room'] == "4") echo 'selected'; ?>>4</option> 
+        <option value="5" <?php if ($row['room'] == "5") echo 'selected'; ?>>5</option> 
         </select>
         
         <label>สาขาวิชา:</label>
-        <select class="form-select  h-100 w-25 mb-3" aria-label="Default select example" name="major" required> <!-- นำข้อมูลจากฐานข้อมูลออกมาแสดง -->
-        <option value="แผนกวิชาเทคนิคพื้นฐาน" <?php if ($row['major'] == "แผนกวิชาเทคนิคพื้นฐาน") echo 'selected'; ?>>แผนกวิชาเทคนิคพื้นฐาน</option> <!-- ส่งค่าข้อมูลมาเป็นสาขางานใหน ให้แสดงผลสาขางานนั้นเป็นอันแรก -->
+        <!-- นำข้อมูลจากฐานข้อมูลออกมาแสดง -->
+        <select class="form-select  h-100 w-25 mb-3" aria-label="Default select example" name="major" required> 
+        <option value="แผนกวิชาเทคนิคพื้นฐาน" <?php if ($row['major'] == "แผนกวิชาเทคนิคพื้นฐาน") echo 'selected'; ?>>แผนกวิชาเทคนิคพื้นฐาน</option> 
         <option value="แผนกวิชาช่างยนต์"   <?php if ($row['major'] == "แผนกวิชาช่างยนต์") echo 'selected'; ?>>แผนกวิชาช่างยนต์</option>
         <option value="แผนกวิชาช่างกลโรงงาน" <?php if ($row['major'] == "แผนกวิชาช่างกลโรงงาน") echo 'selected'; ?>>แผนกวิชาช่างกลโรงงาน</option>
         <option value="แผนกวิชาช่างไฟฟ้ากําลัง" <?php if ($row['major'] == "แผนกวิชาช่างไฟฟ้ากําลัง") echo 'selected'; ?>>แผนกวิชาช่างไฟฟ้ากําลัง</option>

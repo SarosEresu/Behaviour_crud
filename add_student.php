@@ -1,3 +1,4 @@
+<!-- หน้าเพิ่มข้อมูลนักเรียน -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,7 +35,7 @@
           <div class="card-body p-4 p-md-5">
             <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">แบบฟอร์มลงทะเบียน</h3>
             <hr>
-            <form method="POST" action="handle_register.php">
+            <form method="POST" action="handle_register.php"> <!-- ส่งค่าข้อมูลเพื่อจัดการกับฐานข้อมูลต่อไป -->
 
               <div class="row">
                 <div class="col-md-6 mb-4">
@@ -87,7 +88,7 @@
 
                 <select class="select form-control-lg" name="major" required>
                 <option value="">แผนก..</option>   
-                <option value="แผนกวิชาเทคนิคพื้นฐาน">แผนกวิชาเทคนิคพื้นฐาน</option> <!-- ส่งค่าข้อมูลมาเป็นสาขางานใหน ให้แสดงผลสาขางานนั้นเป็นอันแรก -->
+                <option value="แผนกวิชาเทคนิคพื้นฐาน">แผนกวิชาเทคนิคพื้นฐาน</option> 
                 <option value="แผนกวิชาช่างยนต์">แผนกวิชาช่างยนต์</option>
                 <option value="แผนกวิชาช่างกลโรงงาน" >แผนกวิชาช่างกลโรงงาน</option>
                 <option value="แผนกวิชาช่างไฟฟ้ากําลัง">แผนกวิชาช่างไฟฟ้ากําลัง</option>

@@ -1,4 +1,6 @@
+<!-- หน้าสำหรับ user ทั่วไป  -->
 <?php
+/* ตรวจสอบว่า user ได้ล็อคอินมาจริงๆไหม ถ้าไม่ให้ไปที่หน้า login */
     session_start();
     include "condb.php"; //เชื่อมฐานข้อมูล
     if(!isset($_SESSION["email"]))
@@ -31,13 +33,13 @@
         <label>ชื่อ-นามสกุล:</label>
         <input class="form-control form-control-lg mb-3  w-100" type="text" name="name" value="<?=$_SESSION["name"]?>"  disabled readonly  > <!-- แสดงชื่อ -->
         <label>ระดับชั้น:</label>
-        <input class="form-control form-control-lg mb-3  w-100" type="text" name="name" value="<?=$_SESSION["vocation"]?>"  disabled readonly  > <!-- แสดงชื่อ -->
+        <input class="form-control form-control-lg mb-3  w-100" type="text" name="name" value="<?=$_SESSION["vocation"]?>"  disabled readonly  > <!-- แสดงแผนก -->
         <label>ห้อง:</label>
-        <input class="form-control form-control-lg mb-3  w-100" type="text" name="name" value="<?=$_SESSION["room"]?>"  disabled readonly  > <!-- แสดงชื่อ -->
+        <input class="form-control form-control-lg mb-3  w-100" type="text" name="name" value="<?=$_SESSION["room"]?>"  disabled readonly  > <!-- แสดงห้อง -->
         <label>สาขาวิชา:</label>
-        <input class="form-control form-control-lg mb-3  w-100" type="text" name="name" value="<?=$_SESSION["major"]?>"  disabled readonly  > <!-- แสดงชื่อ -->
+        <input class="form-control form-control-lg mb-3  w-100" type="text" name="name" value="<?=$_SESSION["major"]?>"  disabled readonly  > <!-- แสดงสาขา -->
         <label>คะแนนคงเหลือ:</label>
-        <input class="form-control form-control-lg mb-3  w-100" type="text" name="name" value="<?=$_SESSION["score"]?>/100"  disabled readonly  > <!-- แสดงชื่อ -->
+        <input class="form-control form-control-lg mb-3  w-100" type="text" name="name" value="<?=$_SESSION["score"]?>/100"  disabled readonly  > <!-- แสดงคะแนน -->
         <a class="btn btn-danger" href="logout.php">ออกจากระบบ</a></li>
     </div>
     <div class="col">
@@ -52,7 +54,7 @@
                 </thead>
                 <tbody>
                 <?php
-                    while($row = mysqli_fetch_array($result)){ //ทำการลูปเพื่อนำข้อมูลในตารางlogของนักเรียนออกมาแสดง โดยอ้างอิง ID ที่แสดงจาก url ที่ส่งมา
+                    while($row = mysqli_fetch_array($result)){ //ทำการลูปเพื่อนำข้อมูลใของนักเรียนออกมาแสดง โดยอ้างอิงข้อมูลจากใน session
                     ?>    
                 <tr>
                     <td><?=$row['log_id']?></td>

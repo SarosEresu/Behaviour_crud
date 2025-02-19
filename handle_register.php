@@ -1,7 +1,8 @@
+<!-- หน้าสำหรับ สั่งการ การเพิ่มนักเรียน  -->
 <?php
-include "condb.php";
+include "condb.php"; /* เชื่อมฐานข้อมูล */
 
-$id = $_POST['student_id'];
+$id = $_POST['student_id']; /* รับข้อมูลที่ส่งมา */
 $name = $_POST['name'];
 $vocation = $_POST['vocation'];
 $room = $_POST['room'];
@@ -9,7 +10,7 @@ $major = $_POST['major'];
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-// ตรวจสอบว่าข้อมูล student_id หรือ email ซ้ำหรือไม่
+// ตรวจสอบว่าข้อมูล ซ้ำหรือไม่
 $check_sql = "SELECT * FROM students_list WHERE student_id = '$id' OR email = '$email'";
 $check_result = mysqli_query($conn, $check_sql);
 
