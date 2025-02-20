@@ -1,32 +1,9 @@
 <!-- หน้าเพิ่มข้อมูลนักเรียน -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>เพิ่มนักเรียนใหม่</title>
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"> <!-- ดึง bootstrap มาใช้งาน -->
-    <style>
-      .gradient-custom {
-        /* fallback for old browsers */
-        background: #831a1a;
-        }
-        hr {
-        color: #831a1a;
-        }
-
-        .card-registration .select-input.form-control[readonly]:not([disabled]) {
-        font-size: 1rem;
-        line-height: 2.15;
-        padding-left: .75em;
-        padding-right: .75em;
-        }
-        .card-registration .select-arrow {
-        top: 13px;
-        }
-    </style>
-</head>
-<body>
+<?php
+    session_start();
+    $title = 'Admin dashboard';
+    include_once('navbar.php');
+?>
 <section class="vh-100 gradient-custom">
   <div class="container py-5 h-100">
     <div class="row justify-content-center align-items-center h-100">
@@ -146,8 +123,5 @@
   </div>
 </section>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
-<script src="bootstrap/js/bootstrap.min.js"></script> <!-- เด้ง pop-up เพื่อยืนยันว่าจะลบข้อมูลนี้หรือไม่ -->
+<script src="bootstrap/js/bootstrap.min.js"></script>
 </html>
