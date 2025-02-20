@@ -67,6 +67,10 @@
         <option value="แผนกวิชาเทคโนโลยีสารสนเทศ" <?php if ($row['major'] == "แผนกวิชาเทคโนโลยีสารสนเทศ") echo 'selected'; ?>>แผนกวิชาเทคโนโลยีสารสนเทศ</option>
         <option value="แผนกวิชาหลักสูตรระยะสั้น" <?php if ($row['major'] == "แผนกวิชาหลักสูตรระยะสั้น") echo 'selected'; ?>>แผนกวิชาหลักสูตรระยะสั้น</option>
         </select>
+        <label>อีเมล:</label>
+        <input class="form-control form-control-lg mb-3  w-25" type="email" name="email" value="<?=$row['email']?>" required> 
+        <label>รหัสผ่าน:</label>
+        <input class="form-control form-control-lg mb-3  w-25" type="text" name="password" value="<?=$row['password']?>"  required > 
         <input type="submit" class="btn btn-success" value="ยืนยันการแก้ไข">
         <a href="index.php" class="btn btn-secondary">กลับ</a>
         </form></div>

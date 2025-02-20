@@ -5,10 +5,12 @@
 
     $id = $_POST['id'];
     $des = $_POST['description']; /* รับข้อมูลที่ส่งมาจาก Frontend มาเก็บไว้ในตัวแปร*/
-    $score = $_POST['score'];
+    $score = intval($_POST['score']);
+    $action = $_POST['action'];
+    $final_score = ($action == "+") ? $score : -$score;
 
-    $sql = "INSERT INTO behaviour_log(student_id, log_des, point) VALUES('$id','$des','$score');
-            UPDATE students_list SET student_point = student_point + '$score' WHERE student_id = '$id';"; /* ภาษา sql ใช้สำหรับสั่งคำสั่งที่เราต้องการจะกระทำต่อฐานข้อมูล */ 
+    $sql = "INSERT INTO behaviour_log(student_id, log_des, point) VALUES('$id','$des','$final_score');
+            UPDATE students_list SET student_point = student_point + '$final_score' WHERE student_id = '$id';"; /* ภาษา sql ใช้สำหรับสั่งคำสั่งที่เราต้องการจะกระทำต่อฐานข้อมูล */ 
     $result = mysqli_multi_query($conn,$sql); /* สั่งให้คำสั่ง sql ทำงาน */
 
     //ใช้ if else ในการตรวจสอบการทำงาน

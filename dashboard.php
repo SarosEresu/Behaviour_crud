@@ -25,6 +25,26 @@
 <body>
 <div>
 <div class="container shadow p-3 mt-5 bg-white rounded">
+<nav class="navbar p-3" style="background: #831a1a">
+        <div class="d-flex col-12 col-md-3 col-lg-2 mb-2 mb-lg-0 flex-wrap flex-md-nowrap justify-content-between">
+            <a class="navbar-brand text-white" href="#" >
+                ระบบตัดคะแนนพฤติกรรม
+            </a>
+            <button class="navbar-toggler d-md-none collapsed mb-3" type="button" data-toggle="collapse" data-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            </div>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
+                  สวัสดี <?php echo $_SESSION['name'] ?>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <li><a class="dropdown-item" href="logout.php">ออกจากระบบ</a></li>
+                </ul>
+              </div>
+        </div>
+        
+    </nav>
     <div class="container">
     <div class="row">
     <div class="col">
