@@ -10,3 +10,4 @@
     if(!$conn){
         die("Failed to connect" . mysqli_connect_error());  //ตรวจสอบว่าสามารถเชื่อมต่อได้ไหมถ้าไม่ได้จะส่งerrorกลับมา
     }
+?>

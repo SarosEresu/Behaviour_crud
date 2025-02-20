@@ -61,7 +61,7 @@
     </style>
 </head>
 <body>
-    <nav class="navbar p-3" style="background: #831a1a">
+    <nav class="navbar p-4" style="background: #831a1a">
         <div class="d-flex col-12 col-md-3 col-lg-2 mb-2 mb-lg-0 flex-wrap flex-md-nowrap justify-content-between">
             <a class="navbar-brand text-white" href="#" >
                 ระบบตัดคะแนนพฤติกรรม
@@ -71,7 +71,7 @@
             </button>
             </div>
             <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
+                <button class="btn btn-secondary dropdown-toggle mr-3" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
                   สวัสดี <?php echo $_SESSION['name'] ?>
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
