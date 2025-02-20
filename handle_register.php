@@ -23,10 +23,10 @@ if (mysqli_num_rows($check_result) > 0) {
             title: 'ลงทะเบียนล้มเหลว!',
             text: 'รหัสนักศึกษาหรืออีเมลนี้มีอยู่ในระบบแล้ว',
             icon: 'error',
-            confirmButtonText: 'ลองอีกครั้ง'
+            confirmButtonText: 'กลับหน้าแรก'
         }).then((result) => {
             if (result.isConfirmed) {
-                window.location = 'register.php'; // กลับไปยังหน้าลงทะเบียน
+                window.location = 'index.php'; // กลับไปยังหน้าลงทะเบียน
             }
         });
     </script></body>
