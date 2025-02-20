@@ -110,7 +110,7 @@ if (isset($_SESSION["Error"])) {
                     <button class="btn btn-lg btn-danger w-100 fs-6" type="submit">เข้าสู่ระบบ</button>
                 </div>
                 <div class="row">
-                    <small>ไม่มีบัญชี? <a href="register.php">ลงทะเบียน</a></small>
+                    <small>ไม่มีบัญชี? <a href="add_student.php">ลงทะเบียน</a></small>
                 </div>
                 </form>
           </div>

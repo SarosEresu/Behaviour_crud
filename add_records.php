@@ -47,6 +47,8 @@
                                         </form>
 
 
+                
+                                                                              
                                                                                         <!-- ปุ่มเปิด Modal -->
                                             <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                                 เพิ่มข้อมูลความประพฤติ
@@ -74,15 +76,16 @@
                                                                     <label for="">คะแนนที่หักลบ, เพิ่ม:</label>
                                                                     <input type="number" class="form-control" name="score" placeholder="จำนวนคะแนน....." required>
                                                                 </div>
-                            
                                                                 <div class="btn-group" role="group" aria-label="Toggle Delete/Add">
-                                                                <input type="radio" class="btn-check" name="action" id="delete" value="-" autocomplete="off" checked>
-                                                                <label class="btn btn-outline-danger" for="delete">ลบ</label>
+                                                                    <input type="radio" class="btn-check" name="action" id="delete" value="-" autocomplete="off" checked>
+                                                                    <label class="btn btn-outline-danger" for="delete">ลบ</label>
 
-                                                                <input type="radio" class="btn-check" name="action" id="add" value="+" autocomplete="off">
-                                                                <label class="btn btn-outline-success" for="add">เพิ่ม</label>
+                                                                    <input type="radio" class="btn-check" name="action" id="add" value="+" autocomplete="off">
+                                                                    <label class="btn btn-outline-success" for="add">เพิ่ม</label>
+                                                                </div>
+
                                                             </div>
-                                                            </div>
+
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ปิด</button>
                                                                 <button type="submit" class="btn btn-primary">บันทึก</button>
@@ -91,6 +94,7 @@
                                                     </div>
                                                 </div>
                                             </div>
+
 
                                             <a href="index.php" class="btn btn-secondary">กลับ</a>
                                         </div>
@@ -136,7 +140,7 @@
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
 </body>
 </html>
