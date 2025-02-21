@@ -64,7 +64,7 @@ if (mysqli_num_rows($check_result) > 0) {
                 confirmButtonText: 'ลองอีกครั้ง'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    window.location = 'register.php'; // กลับไปยังหน้าลงทะเบียน
+                    window.location = 'index.php'; // กลับไปยังหน้าลงทะเบียน
                 }
             });
         </script></body>
