@@ -5,6 +5,62 @@ include "condb.php"; /* เชื่อมฐานข้อมูล */
 if(!isset($_SESSION["email"])) /* ถ้าไม่มีการล็อคอิน ให้ไปที่หน้าล็อคอิน */
 header("location:login.php");
 
+$search = isset($_GET['search']) ? $_GET['search'] : "";
+$vocation = isset($_GET['vocation']) ? $_GET['vocation'] : "";
+$room = isset($_GET['room']) ? $_GET['room'] : "";
+$major = isset($_GET['major']) ? $_GET['major'] : "";
+
+// SQL Query
+$sql = "SELECT * FROM students_list WHERE status = 0";
+
+if (!empty($search)) {
+    $sql .= " AND name LIKE ?";
+}
+if (!empty($vocation)) {
+    $sql .= " AND vocation = ?";
+}
+
+if (!empty($room)) {
+    $sql .= " AND room = ?";
+}
+
+if (!empty($major)) {
+    $sql .= " AND major = ?";
+}
+
+$stmt = $conn->prepare($sql);
+
+// Bind Parameters ตามเงื่อนไขที่ได้รับ
+$params = [];
+$types = "";
+
+if (!empty($search)) {
+    $search = "%$search%";
+    $params[] = &$search;
+    $types .= "s";
+}
+
+if (!empty($vocation)) {
+    $params[] = &$vocation;
+    $types .= "s";
+}
+
+if (!empty($room)) {
+    $params[] = &$room;
+    $types .= "s";
+}
+
+if (!empty($major)) {
+    $params[] = &$major;
+    $types .= "s";
+}
+
+if (!empty($params)) {
+    $stmt->bind_param($types, ...$params);
+}
+
+$stmt->execute();
+$result = $stmt->get_result();
 
 ?>
 <?php
@@ -40,7 +96,7 @@ header("location:login.php");
                             <h5 class="card-header">ไม่ผ่าน</h5>
                             <div class="card-body">
                             <?php 
-                            $students_list_query = "SELECT * FROM students_list WHERE status='0' AND student_point <= '60'"; /* คำนวนจำนวนนักเรียนที่ผ่าน */
+                            $students_list_query = "SELECT * FROM students_list WHERE status='0' AND student_point < '70'"; /* คำนวนจำนวนนักเรียนที่ผ่าน */
                             $student_list_query_run = mysqli_query($conn, $students_list_query);
 
                             if ($student_list_total = mysqli_num_rows($student_list_query_run)) {	
@@ -57,7 +113,7 @@ header("location:login.php");
                             <h5 class="card-header">ผ่าน</h5>
                             <div class="card-body">
                             <?php 
-                            $students_list_query = "SELECT * FROM students_list WHERE status='0' AND student_point > '60'"; /* คำนวนจำนวนนักเรียนที่ไม่ผ่าน */
+                            $students_list_query = "SELECT * FROM students_list WHERE status='0' AND student_point >= '70'"; /* คำนวนจำนวนนักเรียนที่ไม่ผ่าน */
                             $student_list_query_run = mysqli_query($conn, $students_list_query);
 
                             if ($student_list_total = mysqli_num_rows($student_list_query_run)) {	
@@ -69,9 +125,59 @@ header("location:login.php");
                             </div>
                           </div>
                     </div>
-                    
                 </div>
-                <div class="row">
+<div class="row">
+<form method="GET" class="d-flex row g-3 mb-3">
+
+<div class="col-md-3">
+            <input type="text" class="form-control" name="search" placeholder="ค้นหาด้วยชื่อ..." value="<?= htmlspecialchars($search) ?>">
+        </div>
+
+<div class="col-md-2">
+    <select name="vocation" class="form-select">
+        <option value="">------เลือกระดับชั้น-------</option>
+        <?php
+        $vocations = ["ปวช.1", "ปวช.2", "ปวช.3", "ปวช.1wil", "ปวช.2wil", "ปวช.3wil", "ปวส.1", "ปวส.2", "ปวส.1wil", "ปวส.2wil"];
+        foreach ($vocations as $v) {
+            echo "<option value='$v' " . ($vocation == $v ? "selected" : "") . ">$v</option>";
+        }
+        ?>
+    </select>
+</div>
+
+<div class="col-md-2">
+    <select name="room" class="form-select">
+        <option value="">-----เลือกห้อง-----</option>
+        <?php
+        $rooms = ["1", "2", "3", "4", "5"];
+        foreach ($rooms as $r) {
+            echo "<option value='$r' " . ($room == $r ? "selected" : "") . ">$r</option>";
+        }
+        ?>
+    </select>
+</div>
+
+<div class="col-md-2">
+    <select name="major" class="form-select">
+        <option value="">-----เลือกแผนกวิชา------</option>
+        <?php
+        $majors = [
+            "แผนกวิชาเทคนิคพื้นฐาน", "แผนกวิชาช่างยนต์", "แผนกวิชาช่างกลโรงงาน", "แผนกวิชาช่างไฟฟ้ากําลัง", 
+            "แผนกวิชาเทคนิคคอมพิวเตอร์", "แผนกการบัญชี", "แผนกวิชาการตลาด", "แผนกวิชาการโรงแรม", 
+            "แผนกวิชาการอาหารและโภชนาการ", "แผนกวิชาเทคโนโลยีสารสนเทศ", "แผนกวิชาหลักสูตรระยะสั้น"
+        ];
+        foreach ($majors as $m) {
+            echo "<option value='$m' " . ($major == $m ? "selected" : "") . ">$m</option>";
+        }
+        ?>
+    </select>    
+</div>
+
+<div class="col-md-2">
+    <button type="submit" class="btn btn-primary">กรองข้อมูล</button>
+    <a href="?" class="btn btn-secondary">ล้างค่า</a>
+</div>
+</form>   
                     <div class="col-12 col-xl-12 mb-4 mb-lg-0">
                         <div class="card">
                             <h5 class="card-header">รายชื่อนักเรียน</h5>
@@ -93,9 +199,6 @@ header("location:login.php");
                                         </thead>
                                         <tbody>
                                           <?php 
-                                            $sql = "SELECT * FROM students_list WHERE status = 0";
-                                            $result = mysqli_query($conn,$sql);
-                                            
                                             while($row=mysqli_fetch_array($result)){
                                           ?> 
                                             <tr> 

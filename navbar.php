@@ -72,9 +72,14 @@
             </div>
             <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle mr-3" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
-                  สวัสดี <?php echo $_SESSION['name'] ?>
+                  สวัสดีคุณ <?php echo $_SESSION['name'] ?>
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <li><a class="dropdown-item" href="index.php">หน้าแรก</a></li>
+                  <li><a class="dropdown-item" href="add_student_am.php">เพิ่มนักเรียน</a></li>
+                  <li><a class="dropdown-item" href="register_am.php">เพิ่ม Admin</a></li>
+                  <li><a class="dropdown-item" href="info_sum_am.php">สรุปผลข้อมูลเป็น pdf</a></li>
+                  <li><a class="dropdown-item" href="made.php">รายชื่อผู้จัดทำ</a></li>
                   <li><a class="dropdown-item" href="logout.php">ออกจากระบบ</a></li>
                 </ul>
               </div>
@@ -102,8 +107,18 @@
                           </a>
                         </li>
                         <li class="nav-item">
+                          <a class="nav-link active" aria-current="page" href="info_sum_am.php">
+                            <span class="text-white ml-2">สรุปผลข้อมูลเป็น pdf</span>
+                          </a>
+                        </li>
+                        <li class="nav-item">
                           <a class="nav-link active" aria-current="page" href="made.php">
                             <span class="text-white ml-2">รายชื่อผู้จัดทำ</span>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link active" aria-current="page" href="logout.php">
+                            <span class="text-white ml-2">ออกจากระบบ</span>
                           </a>
                         </li>
                       </ul>

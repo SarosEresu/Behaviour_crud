@@ -38,7 +38,7 @@
             </div>
             <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
-                  สวัสดี <?php echo $_SESSION['name'] ?>
+                  สวัสดีคุณ <?php echo $_SESSION['name'] ?>
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                   <li><a class="dropdown-item" href="logout.php">ออกจากระบบ</a></li>
@@ -47,7 +47,7 @@
         </div>
         
     </nav>
-    <div class="container">
+    <div class="container mt-5">
     <div class="row">
     <div class="col">
         <label>รหัสประจำตัวนักศึกษา:</label>

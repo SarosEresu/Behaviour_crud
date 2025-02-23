@@ -10,7 +10,7 @@
       <div class="col-12 col-lg-9 col-xl-7">
         <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
           <div class="card-body p-4 p-md-5">
-            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">แบบฟอร์มลงทะเบียน</h3>
+            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">เพิ่มข้อมูลนักเรียน</h3>
             <hr>
             <form method="POST" action="handle_register.php"> <!-- ส่งค่าข้อมูลเพื่อจัดการกับฐานข้อมูลต่อไป -->
 
